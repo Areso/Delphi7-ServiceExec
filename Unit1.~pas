@@ -1,3 +1,9 @@
+{
+ This is free programm under GPLv2 and GPLv3(or later - as option) dual license.
+ Authors: Anton Gladyshev
+ version 1.0.0.0 date 2016-06-10
+                     (YYYY-MM-DD)
+}
 unit Unit1;
 
 interface
@@ -6,7 +12,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, SvcMgr, Dialogs, ShellApi;
 
 type
-  TService1 = class(TService)
+  TDNSsecure = class(TService)
     procedure ServiceExecute(Sender: TService);
   private
     { Private declarations }
@@ -15,8 +21,7 @@ type
   end;
 
 var
-  Service1: TService1;
-  Work: Boolean;
+  DNSsecure: TDNSsecure;
 implementation
 
 {$R *.DFM}
@@ -24,21 +29,32 @@ implementation
 
 procedure ServiceController(CtrlCode: DWord); stdcall;
 begin
-  Service1.Controller(CtrlCode);
+  DNSsecure.Controller(CtrlCode);
 
 end;
 
-function TService1.GetServiceController: TServiceController;
+function TDNSsecure.GetServiceController: TServiceController;
 begin
   Result := ServiceController;
 end;
 
 
-procedure TService1.ServiceExecute(Sender: TService);
+procedure TDNSsecure.ServiceExecute(Sender: TService);
+var
+  sCmd: string;
+  exec_string: string;
+  f_set: text;
 begin
-  WinExec('echo 3',SW_HIDE);
-  sleep(10000);
+AssignFile(f_set,'C:\Users\Services\String.txt');
+reset(f_set);
+readln(f_set, exec_string);
+sCmd:= '';
+  while not Terminated Do
+  begin
+    WinExec(PChar(exec_string), SW_HIDE);
+    WinExec('ipconfig /flushdns', SW_HIDE);
+    sleep(10000);
+  end;
 end;
 
 end.
- 

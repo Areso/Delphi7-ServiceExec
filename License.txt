@@ -1,0 +1,6 @@
+Author: Anton Gladyshev
+Source code available at https://github.com/Areso/Delphi7-ServiceExec
+There are DualLicense is GNU GPLv2 and GNU GPL v3 as an option
+Full text of licenses could be found there:
+ http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ http://www.gnu.org/licenses/gpl.html

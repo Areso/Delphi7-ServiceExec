@@ -1,0 +1,1 @@
+netsh interface ipv4 delete dnsservers "Подключение по локальной сети" all

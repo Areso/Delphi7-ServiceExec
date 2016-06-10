@@ -8,7 +8,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'DNSsecure';
+  Application.Title := 'ServiceExec';
   Application.CreateForm(TDNSsecure, DNSsecure);
   Application.Run;
 end.

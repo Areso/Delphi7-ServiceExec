@@ -1,0 +1,1 @@
+netsh interface ip delete dns "Подключение по локальной сети" all
